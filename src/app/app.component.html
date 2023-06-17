@@ -1,0 +1,22 @@
+<div>
+  <h1 class="bg-red-500">Список покупок</h1>
+  <child-comp
+    [currentText]="text"
+    [clickCount]="clicks"
+    [currentPrice]="price"
+    (changeMethod)="onChanged($event)"
+  ></child-comp>
+  <div>
+    <input [(ngModel)]="text" placeholder="Название" type="text" />
+    <input [(ngModel)]="price" placeholder="0" type="number" />
+    <button (click)="addItem(text, price)">Добавить</button>
+  </div>
+  <div *ngFor="let item of items">
+    <p>Предмет: {{ item.purchase }}</p>
+    <p>Цена: {{ item.price }}</p>
+    <div>
+      Куплено:
+      <input type="checkbox" [(ngModel)]="item.done" />
+    </div>
+  </div>
+</div>
