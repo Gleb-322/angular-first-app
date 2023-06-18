@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-class Items {
+export class Items {
   purchase: string;
   done: boolean;
   price: number;
@@ -22,6 +22,11 @@ export class AppComponent {
 
   clicks: number = 0;
 
+  confirmMessage: boolean = false;
+  sayYes: boolean = false;
+
+  purchase: string = '';
+
   items: Items[] = [
     { purchase: 'Хлеб', done: false, price: 15.9 },
     { purchase: 'Масло', done: false, price: 60 },
@@ -38,5 +43,22 @@ export class AppComponent {
 
   onChanged(inc: any) {
     inc == true ? this.clicks++ : this.clicks--;
+  }
+
+  showConfirmMes(value: any) {
+    this.confirmMessage = false;
+    this.sayYes = value;
+    console.log(this.sayYes);
+    if (this.sayYes) {
+      this.items.filter((item) => item.purchase !== this.purchase);
+    }
+    console.log(this.items);
+  }
+
+  onDelItem(value: any) {
+    this.confirmMessage = value.confirm;
+    this.purchase = value.purchase;
+    console.log(this.confirmMessage);
+    console.log(this.purchase);
   }
 }

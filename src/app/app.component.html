@@ -11,12 +11,13 @@
     <input [(ngModel)]="price" placeholder="0" type="number" />
     <button (click)="addItem(text, price)">Добавить</button>
   </div>
-  <div *ngFor="let item of items">
-    <p>Предмет: {{ item.purchase }}</p>
-    <p>Цена: {{ item.price }}</p>
-    <div>
-      Куплено:
-      <input type="checkbox" [(ngModel)]="item.done" />
-    </div>
-  </div>
+  <item-list
+    [listItems]="items"
+    (delItemEmitter)="onDelItem($event)"
+  ></item-list>
+  <confirm-message
+    *ngIf="confirmMessage"
+    (confirmEmitter)="showConfirmMes($event)"
+    (cancelEmitter)="showConfirmMes($event)"
+  ></confirm-message>
 </div>
