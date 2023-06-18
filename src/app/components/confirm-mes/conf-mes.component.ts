@@ -12,11 +12,12 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class ConfirmMessageComponent {
   @Output() confirmEmitter = new EventEmitter<boolean>();
+  @Output() cancelEmitter = new EventEmitter<boolean>();
 
   delYes(value: any) {
     this.confirmEmitter.emit(value);
   }
   delNo(value: any) {
-    this.confirmEmitter.emit(value);
+    this.cancelEmitter.emit(value);
   }
 }
