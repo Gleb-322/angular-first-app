@@ -1,14 +1,5 @@
-<div class="border-2 relative" *ngFor="let item of listItems">
-  <button
-    (click)="delItem({ confirm: true, purchase: item.purchase })"
-    class="rounded w-5 bg-cyan-500 absolute top-0 left-60"
-  >
-    X
-  </button>
-  <p>Предмет: {{ item.purchase }}</p>
-  <p>Цена: {{ item.price }}</p>
-  <div>
-    Куплено:
-    <input type="checkbox" [(ngModel)]="item.done" />
-  </div>
-</div>
+<main class="border-2 relative">
+  <div>{{ listTodo.title }}</div>
+  <div>{{ listTodo.favorite }}</div>
+  <div>{{ listTodo.complete }}</div>
+</main>

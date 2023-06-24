@@ -1,23 +1,5 @@
 <div>
-  <h1 class="bg-red-500">Список покупок</h1>
-  <child-comp
-    [currentText]="text"
-    [clickCount]="clicks"
-    [currentPrice]="price"
-    (changeMethod)="onChanged($event)"
-  ></child-comp>
-  <div>
-    <input [(ngModel)]="text" placeholder="Название" type="text" />
-    <input [(ngModel)]="price" placeholder="0" type="number" />
-    <button (click)="addItem(text, price)">Добавить</button>
-  </div>
-  <item-list
-    [listItems]="items"
-    (delItemEmitter)="onDelItem($event)"
-  ></item-list>
-  <confirm-message
-    *ngIf="confirmMessage"
-    (confirmEmitter)="showConfirmMes($event)"
-    (cancelEmitter)="showConfirmMes($event)"
-  ></confirm-message>
+  <app-header></app-header>
+  <item-list *ngFor="let todo of todos" [listTodo]="todo"> </item-list>
+  <app-footer></app-footer>
 </div>

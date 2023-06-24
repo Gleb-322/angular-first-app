@@ -3,16 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ChildComponent } from './components/child/child.component';
 import { ItemListComponent } from './components/item-list/item-list.component';
-import { ConfirmMessageComponent } from './components/confirm-mes/conf-mes.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ChildComponent,
     ItemListComponent,
-    ConfirmMessageComponent,
+    HeaderComponent,
+    FooterComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
