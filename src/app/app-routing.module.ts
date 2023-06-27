@@ -6,10 +6,11 @@ import { FavoritePageComponent } from './pages/favorite-page/favorite-page.compo
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 
 const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: 'list' },
   { path: 'list', component: ListPageComponent },
   { path: 'add', component: AddPageComponent },
   { path: 'favorite', component: FavoritePageComponent },
-  { path: '**', component: NotFoundPageComponent },
+  { path: '**', pathMatch: 'full', component: NotFoundPageComponent },
 ];
 
 @NgModule({
